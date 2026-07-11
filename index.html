@@ -9,7 +9,6 @@
 
   :root{
     --blueprint: #0B2545;
-    --blueprint-line: #2C4A6E;
     --paper: #EEF3F7;
     --paper-line: rgba(11,37,69,0.08);
     --ink: #16213A;
@@ -18,9 +17,7 @@
     --safety-dim: #E85D2A;
     --white: #FFFFFF;
   }
-
   *{ box-sizing: border-box; }
-
   body{
     margin:0;
     background:
@@ -31,12 +28,7 @@
     font-family: 'Source Serif 4', serif;
     line-height: 1.65;
   }
-
   a { color: inherit; }
-
-  .mono{ font-family:'JetBrains Mono', monospace; }
-
-  /* ---------- HEADER ---------- */
   header{
     border-bottom: 3px solid var(--blueprint);
     background: var(--white);
@@ -46,225 +38,61 @@
     z-index: 20;
   }
   .header-inner{
-    max-width: 920px;
-    margin: 0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap: wrap;
-    gap: 12px;
+    max-width: 920px; margin: 0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap: wrap; gap: 12px;
   }
-  .brand{
-    display:flex;
-    align-items:baseline;
-    gap: 10px;
-  }
+  .brand{ display:flex; align-items:baseline; gap: 10px; }
   .brand-mark{
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
-    font-size: 13px;
-    color: var(--white);
-    background: var(--safety);
-    padding: 3px 7px;
-    letter-spacing: 0.06em;
+    font-family:'JetBrains Mono', monospace; font-weight:700; font-size: 13px;
+    color: var(--white); background: var(--safety); padding: 3px 7px; letter-spacing: 0.06em;
   }
-  .brand-name{
-    font-family:'JetBrains Mono', monospace;
-    font-weight: 700;
-    font-size: 19px;
-    letter-spacing: -0.01em;
-  }
-  nav{
-    font-family:'JetBrains Mono', monospace;
-    font-size: 13px;
-    display:flex;
-    gap: 22px;
-    color: var(--steel);
-  }
+  .brand-name{ font-family:'JetBrains Mono', monospace; font-weight: 700; font-size: 19px; letter-spacing: -0.01em; }
+  nav{ font-family:'JetBrains Mono', monospace; font-size: 13px; display:flex; gap: 22px; color: var(--steel); }
   nav a{ text-decoration:none; border-bottom: 1px solid transparent; }
   nav a:hover{ color: var(--ink); border-bottom-color: var(--safety); }
 
-  /* ---------- HERO / TITLE BLOCK ---------- */
-  .titleblock-wrap{
-    max-width: 920px;
-    margin: 48px auto 40px;
-    padding: 0 24px;
-  }
-  .titleblock{
-    border: 2px solid var(--blueprint);
-    background: var(--white);
-  }
-  .tb-top{
-    padding: 34px 32px 26px;
-  }
-  .tb-eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    color: var(--safety);
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  h1.tb-title{
-    font-family:'Source Serif 4', serif;
-    font-weight: 700;
-    font-size: clamp(32px, 5vw, 52px);
-    line-height: 1.05;
-    margin: 0 0 14px;
-    letter-spacing: -0.01em;
-  }
-  .tb-sub{
-    color: var(--steel);
-    font-size: 17px;
-    max-width: 60ch;
-    margin: 0;
-  }
-  .tb-meta-strip{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    border-top: 2px solid var(--blueprint);
-  }
-  .tb-meta-cell{
-    padding: 12px 16px;
-    border-right: 1px solid var(--paper-line);
-    font-family:'JetBrains Mono', monospace;
-  }
+  .titleblock-wrap{ max-width: 920px; margin: 48px auto 40px; padding: 0 24px; }
+  .titleblock{ border: 2px solid var(--blueprint); background: var(--white); }
+  .tb-top{ padding: 34px 32px 26px; }
+  .tb-eyebrow{ font-family:'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--safety); text-transform: uppercase; margin-bottom: 14px; }
+  h1.tb-title{ font-family:'Source Serif 4', serif; font-weight: 700; font-size: clamp(32px, 5vw, 52px); line-height: 1.05; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .tb-sub{ color: var(--steel); font-size: 17px; max-width: 60ch; margin: 0; }
+  .tb-meta-strip{ display:grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--blueprint); }
+  .tb-meta-cell{ padding: 12px 16px; border-right: 1px solid var(--paper-line); font-family:'JetBrains Mono', monospace; }
   .tb-meta-cell:last-child{ border-right:none; }
-  .tb-meta-label{
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    color: var(--steel);
-    text-transform: uppercase;
-    display:block;
-    margin-bottom: 4px;
-  }
+  .tb-meta-label{ font-size: 10px; letter-spacing: 0.1em; color: var(--steel); text-transform: uppercase; display:block; margin-bottom: 4px; }
   .tb-meta-value{ font-size: 13px; font-weight: 500; }
 
-  /* ---------- SECTION LABEL ---------- */
-  .section-label{
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display:flex;
-    align-items:center;
-    gap: 12px;
-    margin-top: 56px;
-    margin-bottom: 22px;
-  }
-  .section-label .tick{
-    width: 22px; height: 2px; background: var(--safety);
-  }
-  .section-label span{
-    font-family:'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--steel);
-  }
+  .section-label{ max-width: 920px; margin: 0 auto; padding: 0 24px; display:flex; align-items:center; gap: 12px; margin-top: 56px; margin-bottom: 22px; }
+  .section-label .tick{ width: 22px; height: 2px; background: var(--safety); }
+  .section-label span{ font-family:'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); }
 
-  /* ---------- POST CARD (index listing) ---------- */
-  .postcard{
-    max-width: 920px;
-    margin: 0 auto 18px;
-    padding: 0 24px;
-  }
-  .postcard-inner{
-    border: 1.5px solid var(--blueprint);
-    background: var(--white);
-    padding: 26px 28px;
-    display:grid;
-    grid-template-columns: 74px 1fr;
-    gap: 22px;
-    transition: box-shadow .18s ease, transform .18s ease;
-  }
-  .postcard-inner:hover{
-    box-shadow: 6px 6px 0 var(--safety);
-    transform: translate(-2px,-2px);
-  }
-  .sheet-no{
-    font-family:'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--steel);
-    border-right: 1px solid var(--paper-line);
-    padding-right: 14px;
-  }
+  .postcard{ max-width: 920px; margin: 0 auto 18px; padding: 0 24px; }
+  .postcard-inner{ border: 1.5px solid var(--blueprint); background: var(--white); padding: 26px 28px; display:grid; grid-template-columns: 74px 1fr; gap: 22px; transition: box-shadow .18s ease, transform .18s ease; }
+  .postcard-inner:hover{ box-shadow: 6px 6px 0 var(--safety); transform: translate(-2px,-2px); }
+  .sheet-no{ font-family:'JetBrains Mono', monospace; font-size: 12px; color: var(--steel); border-right: 1px solid var(--paper-line); padding-right: 14px; }
   .sheet-no b{ display:block; font-size: 26px; color: var(--ink); }
-  .postcard h3{
-    margin: 0 0 8px;
-    font-size: 24px;
-  }
-  .postcard p{
-    margin: 0 0 10px;
-    color: var(--steel);
-    font-size: 15.5px;
-  }
-  .read-tag{
-    font-family:'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--safety-dim);
-  }
-  .postcard-inner.disabled{
-    opacity: 0.55;
-  }
-  .postcard-inner.disabled:hover{
-    box-shadow:none; transform:none;
-  }
+  .postcard h3{ margin: 0 0 8px; font-size: 24px; }
+  .postcard p{ margin: 0 0 10px; color: var(--steel); font-size: 15.5px; }
+  .read-tag{ font-family:'JetBrains Mono', monospace; font-size: 12px; color: var(--safety-dim); }
+  .postcard-inner.disabled{ opacity: 0.55; }
+  .postcard-inner.disabled:hover{ box-shadow:none; transform:none; }
 
-  /* ---------- ARTICLE ---------- */
-  article{
-    max-width: 720px;
-    margin: 24px auto 80px;
-    padding: 0 24px;
-  }
-  article h2{
-    font-size: clamp(24px, 4vw, 32px);
-    margin-top: 44px;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--blueprint);
-  }
+  article{ max-width: 720px; margin: 24px auto 60px; padding: 0 24px; }
+  article h2{ font-size: clamp(24px, 4vw, 32px); margin-top: 44px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--blueprint); }
   article h2:first-of-type{ margin-top: 8px; }
   article p{ font-size: 17px; margin: 0 0 18px; }
   article ul{ margin: 0 0 20px; padding-left: 22px; }
   article li{ margin-bottom: 8px; font-size: 16.5px; }
   article strong{ color: var(--ink); }
-  article hr{
-    border:none;
-    border-top: 1px dashed var(--steel);
-    margin: 40px 0 20px;
-  }
-  .next-up{
-    font-family:'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: var(--steel);
-  }
+  article hr{ border:none; border-top: 1px dashed var(--steel); margin: 40px 0 20px; }
+  .next-up{ font-family:'JetBrains Mono', monospace; font-size: 13px; color: var(--steel); }
   .next-up b{ color: var(--safety-dim); }
+  .callout{ border-left: 3px solid var(--safety); background: var(--white); padding: 16px 20px; margin: 26px 0; font-size: 15.5px; }
 
-  .callout{
-    border-left: 3px solid var(--safety);
-    background: var(--white);
-    padding: 16px 20px;
-    margin: 26px 0;
-    font-size: 15.5px;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top: 3px solid var(--blueprint);
-    background: var(--blueprint);
-    color: rgba(255,255,255,0.75);
-    padding: 28px 24px;
-    font-family:'JetBrains Mono', monospace;
-    font-size: 12.5px;
-  }
-  .footer-inner{
-    max-width: 920px;
-    margin: 0 auto;
-    display:flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+  footer{ border-top: 3px solid var(--blueprint); background: var(--blueprint); color: rgba(255,255,255,0.75); padding: 28px 24px; font-family:'JetBrains Mono', monospace; font-size: 12.5px; }
+  .footer-inner{ max-width: 920px; margin: 0 auto; display:flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
   @media (max-width: 600px){
     .tb-meta-strip{ grid-template-columns: repeat(2, 1fr); }
@@ -284,7 +112,7 @@
     </div>
     <nav>
       <a href="#top">Home</a>
-      <a href="#post-01">Posts</a>
+      <a href="#posts">Posts</a>
       <a href="#about">About</a>
     </nav>
   </div>
@@ -298,30 +126,18 @@
       <p class="tb-sub">Study tactics, soft skills, and field notes for engineering students turning coursework into a career — written while still figuring it out myself.</p>
     </div>
     <div class="tb-meta-strip">
-      <div class="tb-meta-cell">
-        <span class="tb-meta-label">Author</span>
-        <span class="tb-meta-value">Eng. Student</span>
-      </div>
-      <div class="tb-meta-cell">
-        <span class="tb-meta-label">Scale</span>
-        <span class="tb-meta-value">1 post / week</span>
-      </div>
-      <div class="tb-meta-cell">
-        <span class="tb-meta-label">Series</span>
-        <span class="tb-meta-value">Soft Skills</span>
-      </div>
-      <div class="tb-meta-cell">
-        <span class="tb-meta-label">Status</span>
-        <span class="tb-meta-value">In progress</span>
-      </div>
+      <div class="tb-meta-cell"><span class="tb-meta-label">Author</span><span class="tb-meta-value">Eng. Student</span></div>
+      <div class="tb-meta-cell"><span class="tb-meta-label">Scale</span><span class="tb-meta-value">New posts regularly</span></div>
+      <div class="tb-meta-cell"><span class="tb-meta-label">Series</span><span class="tb-meta-value">Soft Skills</span></div>
+      <div class="tb-meta-cell"><span class="tb-meta-label">Status</span><span class="tb-meta-value">In progress</span></div>
     </div>
   </div>
 </div>
 
-<div class="section-label"><div class="tick"></div><span>Sheet Index</span></div>
+<div class="section-label" id="posts"><div class="tick"></div><span>Sheet Index</span></div>
 
 <div class="postcard">
-  <a href="#post-01" style="text-decoration:none;">
+  <a href="#sheet-01" style="text-decoration:none;">
     <div class="postcard-inner">
       <div class="sheet-no"><b>01</b>OF SERIES</div>
       <div>
@@ -334,21 +150,33 @@
 </div>
 
 <div class="postcard">
+  <a href="#sheet-02" style="text-decoration:none;">
+    <div class="postcard-inner">
+      <div class="sheet-no"><b>02</b>OF SERIES</div>
+      <div>
+        <h3>How to Communicate Technical Ideas to Non-Technical People</h3>
+        <p>Being technically skilled gets your foot in the door. Being able to explain it clearly is what opens doors further. A practical guide to translating technical ideas for any audience.</p>
+        <span class="read-tag">→ Read Sheet 02</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="postcard">
   <div class="postcard-inner disabled">
-    <div class="sheet-no"><b>02</b>OF SERIES</div>
+    <div class="sheet-no"><b>03</b>OF SERIES</div>
     <div>
-      <h3>How to Communicate Technical Ideas to Non-Technical People</h3>
+      <h3>Mastering Time Management as an Engineering Student</h3>
       <p>Coming up next in the series.</p>
-      <span class="read-tag mono" style="color:var(--steel);">Drafting — not yet published</span>
+      <span class="read-tag" style="color:var(--steel);">Drafting — not yet published</span>
     </div>
   </div>
 </div>
 
-<div class="section-label" id="post-01"><div class="tick"></div><span>Sheet 01 — Full Read</span></div>
+<div class="section-label" id="sheet-01"><div class="tick"></div><span>Sheet 01 — Full Read</span></div>
 
 <article>
   <h2 style="border:none; margin-top:0;">What Are Soft Skills? Why They Matter for Your Career and Life</h2>
-
   <p>If you're an engineering student, you've probably spent most of your time mastering technical subjects — coding, math, design, problem-solving. These are your <strong>hard skills</strong>, and they're essential. But there's another category of skills that often decides whether you actually land the job, keep it, and grow in it: <strong>soft skills</strong>.</p>
 
   <h2>What Are Soft Skills?</h2>
@@ -377,28 +205,24 @@
 
   <h2>How Are Soft Skills Useful in Real Life?</h2>
   <p>Soft skills aren't just for job interviews — they shape almost every part of daily life:</p>
-
   <p><strong>In college:</strong></p>
   <ul>
     <li>Working on group projects without conflict</li>
     <li>Presenting your work confidently during vivas or demos</li>
     <li>Managing your time across classes, assignments, and personal life</li>
   </ul>
-
   <p><strong>At work:</strong></p>
   <ul>
     <li>Collaborating with teammates from different backgrounds and departments</li>
     <li>Handling criticism or feedback from managers without getting discouraged</li>
     <li>Communicating technical problems to non-technical stakeholders</li>
   </ul>
-
   <p><strong>In personal relationships:</strong></p>
   <ul>
     <li>Listening to and understanding friends and family</li>
     <li>Resolving disagreements calmly</li>
     <li>Building trust and long-term relationships</li>
   </ul>
-
   <p><strong>In leadership roles:</strong></p>
   <ul>
     <li>Motivating a team even when you don't have formal authority</li>
@@ -411,7 +235,58 @@
   <p>The good news? Soft skills can be learned and improved, just like coding or math. In the coming posts, we'll break down specific soft skills — communication, time management, teamwork, and more — with practical tips you can start using today.</p>
 
   <hr>
-  <p class="next-up">COMING UP NEXT — <b>How to Communicate Technical Ideas to Non-Technical People</b></p>
+  <p class="next-up">NEXT SHEET — <b><a href="#sheet-02">How to Communicate Technical Ideas to Non-Technical People →</a></b></p>
+</article>
+
+<div class="section-label" id="sheet-02"><div class="tick"></div><span>Sheet 02 — Full Read</span></div>
+
+<article>
+  <h2 style="border:none; margin-top:0;">How to Communicate Technical Ideas to Non-Technical People</h2>
+  <p>As an engineering student, you're used to talking in a certain language — formulas, technical terms, system diagrams, jargon that makes perfect sense to you and your classmates. But the moment you step into an interview, a team meeting with non-technical stakeholders, or even a conversation with family about what you're studying, that same language can create confusion instead of clarity.</p>
+  <p>Being able to explain technical ideas simply is one of the most valuable soft skills you can build — and it's exactly what separates engineers who get noticed from engineers who get overlooked, no matter how good their technical work is.</p>
+
+  <h2>Why This Skill Matters So Much</h2>
+  <p>In the real world, engineers rarely work in isolation. You'll often need to:</p>
+  <ul>
+    <li>Explain a project to a manager who doesn't code</li>
+    <li>Pitch an idea to investors or clients with no technical background</li>
+    <li>Justify a design decision to stakeholders focused on cost or timelines</li>
+    <li>Help a teammate from another department understand a technical constraint</li>
+  </ul>
+  <p>If you can't translate your technical thinking into plain language, your ideas — no matter how brilliant — may get ignored, misunderstood, or rejected simply because no one else could follow them.</p>
+
+  <h2>The Core Principle: Know Your Audience</h2>
+  <div class="callout">Before explaining anything technical, ask yourself: what does this person actually need to know, and why do they need to know it?</div>
+  <p>A manager might care about cost, timeline, and risk — not the specific algorithm you used. A client might care about what the product does for them — not how it works internally. Tailor your explanation to their goals, not yours.</p>
+
+  <h2>Practical Techniques to Simplify Technical Ideas</h2>
+  <p><strong>1. Use analogies and everyday comparisons</strong><br>
+  Compare complex systems to things people already understand. For example, explaining a database as a "digital filing cabinet" or an API as a "waiter taking orders between the customer and the kitchen" makes abstract concepts click instantly.</p>
+  <p><strong>2. Avoid jargon — or explain it immediately</strong><br>
+  If you must use a technical term, follow it with a simple explanation in the same sentence. Don't assume prior knowledge.</p>
+  <p><strong>3. Focus on the "what" and "why" before the "how"</strong><br>
+  Non-technical audiences usually care about outcomes and impact first. Save detailed technical explanations for when someone specifically asks "how does it work?"</p>
+  <p><strong>4. Use visuals when possible</strong><br>
+  A simple diagram, flowchart, or sketch often communicates more in seconds than paragraphs of explanation. You don't need to be a great artist — even rough sketches help.</p>
+  <p><strong>5. Check for understanding, not just talk</strong><br>
+  Pause and ask questions like "Does that make sense so far?" or "Want me to go deeper on any part?" This turns a one-way explanation into a conversation, and reveals where you need to simplify further.</p>
+  <p><strong>6. Practice the "explain it to a beginner" test</strong><br>
+  If you can explain a concept clearly to someone with zero background in your field, you've truly understood it yourself — not just memorized it.</p>
+
+  <h2>Where This Skill Pays Off</h2>
+  <ul>
+    <li><strong>Job interviews:</strong> Explaining a past project clearly to a non-technical interviewer often matters more than the technical depth itself.</li>
+    <li><strong>Team projects:</strong> Helping teammates from different specializations understand your part builds trust and smoother collaboration.</li>
+    <li><strong>Career growth:</strong> Engineers who can bridge the gap between technical and non-technical teams are often the ones trusted with leadership and client-facing roles.</li>
+    <li><strong>Everyday life:</strong> Explaining your work to family, friends, or mentors becomes easier — and more satisfying.</li>
+  </ul>
+
+  <h2>The Bottom Line</h2>
+  <p>Being technically skilled gets your foot in the door. Being able to explain your technical skills clearly is what opens doors further — interviews, promotions, leadership opportunities, and stronger collaboration. It's a skill you can practice in everyday conversations, not just in formal settings, so start small: the next time you explain a project or concept to a friend or family member, try simplifying it as if they've never heard of your field before.</p>
+
+  <hr>
+  <p class="next-up">COMING UP NEXT — <b>Mastering Time Management as an Engineering Student</b></p>
+  <p class="next-up"><a href="#top">← Back to top</a></p>
 </article>
 
 <footer id="about">
