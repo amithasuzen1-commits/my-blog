@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Drafting Table — Engineering Student Resources</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+  :root{
+    --blueprint: #0B2545;
+    --blueprint-line: #2C4A6E;
+    --paper: #EEF3F7;
+    --paper-line: rgba(11,37,69,0.08);
+    --ink: #16213A;
+    --steel: #5C7086;
+    --safety: #FF6B35;
+    --safety-dim: #E85D2A;
+    --white: #FFFFFF;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/32px 32px,
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/32px 32px,
+      var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', serif;
+    line-height: 1.65;
+  }
+
+  a { color: inherit; }
+
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* ---------- HEADER ---------- */
+  header{
+    border-bottom: 3px solid var(--blueprint);
+    background: var(--white);
+    padding: 18px 24px;
+    position: sticky;
+    top:0;
+    z-index: 20;
+  }
+  .header-inner{
+    max-width: 920px;
+    margin: 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap: 10px;
+  }
+  .brand-mark{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size: 13px;
+    color: var(--white);
+    background: var(--safety);
+    padding: 3px 7px;
+    letter-spacing: 0.06em;
+  }
+  .brand-name{
+    font-family:'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  nav{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+    display:flex;
+    gap: 22px;
+    color: var(--steel);
+  }
+  nav a{ text-decoration:none; border-bottom: 1px solid transparent; }
+  nav a:hover{ color: var(--ink); border-bottom-color: var(--safety); }
+
+  /* ---------- HERO / TITLE BLOCK ---------- */
+  .titleblock-wrap{
+    max-width: 920px;
+    margin: 48px auto 40px;
+    padding: 0 24px;
+  }
+  .titleblock{
+    border: 2px solid var(--blueprint);
+    background: var(--white);
+  }
+  .tb-top{
+    padding: 34px 32px 26px;
+  }
+  .tb-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--safety);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1.tb-title{
+    font-family:'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .tb-sub{
+    color: var(--steel);
+    font-size: 17px;
+    max-width: 60ch;
+    margin: 0;
+  }
+  .tb-meta-strip{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 2px solid var(--blueprint);
+  }
+  .tb-meta-cell{
+    padding: 12px 16px;
+    border-right: 1px solid var(--paper-line);
+    font-family:'JetBrains Mono', monospace;
+  }
+  .tb-meta-cell:last-child{ border-right:none; }
+  .tb-meta-label{
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--steel);
+    text-transform: uppercase;
+    display:block;
+    margin-bottom: 4px;
+  }
+  .tb-meta-value{ font-size: 13px; font-weight: 500; }
+
+  /* ---------- SECTION LABEL ---------- */
+  .section-label{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    margin-top: 56px;
+    margin-bottom: 22px;
+  }
+  .section-label .tick{
+    width: 22px; height: 2px; background: var(--safety);
+  }
+  .section-label span{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--steel);
+  }
+
+  /* ---------- POST CARD (index listing) ---------- */
+  .postcard{
+    max-width: 920px;
+    margin: 0 auto 18px;
+    padding: 0 24px;
+  }
+  .postcard-inner{
+    border: 1.5px solid var(--blueprint);
+    background: var(--white);
+    padding: 26px 28px;
+    display:grid;
+    grid-template-columns: 74px 1fr;
+    gap: 22px;
+    transition: box-shadow .18s ease, transform .18s ease;
+  }
+  .postcard-inner:hover{
+    box-shadow: 6px 6px 0 var(--safety);
+    transform: translate(-2px,-2px);
+  }
+  .sheet-no{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--steel);
+    border-right: 1px solid var(--paper-line);
+    padding-right: 14px;
+  }
+  .sheet-no b{ display:block; font-size: 26px; color: var(--ink); }
+  .postcard h3{
+    margin: 0 0 8px;
+    font-size: 24px;
+  }
+  .postcard p{
+    margin: 0 0 10px;
+    color: var(--steel);
+    font-size: 15.5px;
+  }
+  .read-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--safety-dim);
+  }
+  .postcard-inner.disabled{
+    opacity: 0.55;
+  }
+  .postcard-inner.disabled:hover{
+    box-shadow:none; transform:none;
+  }
+
+  /* ---------- ARTICLE ---------- */
+  article{
+    max-width: 720px;
+    margin: 24px auto 80px;
+    padding: 0 24px;
+  }
+  article h2{
+    font-size: clamp(24px, 4vw, 32px);
+    margin-top: 44px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--blueprint);
+  }
+  article h2:first-of-type{ margin-top: 8px; }
+  article p{ font-size: 17px; margin: 0 0 18px; }
+  article ul{ margin: 0 0 20px; padding-left: 22px; }
+  article li{ margin-bottom: 8px; font-size: 16.5px; }
+  article strong{ color: var(--ink); }
+  article hr{
+    border:none;
+    border-top: 1px dashed var(--steel);
+    margin: 40px 0 20px;
+  }
+  .next-up{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--steel);
+  }
+  .next-up b{ color: var(--safety-dim); }
+
+  .callout{
+    border-left: 3px solid var(--safety);
+    background: var(--white);
+    padding: 16px 20px;
+    margin: 26px 0;
+    font-size: 15.5px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top: 3px solid var(--blueprint);
+    background: var(--blueprint);
+    color: rgba(255,255,255,0.75);
+    padding: 28px 24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+  }
+  .footer-inner{
+    max-width: 920px;
+    margin: 0 auto;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  @media (max-width: 600px){
+    .tb-meta-strip{ grid-template-columns: repeat(2, 1fr); }
+    .postcard-inner{ grid-template-columns: 1fr; }
+    .sheet-no{ border-right:none; border-bottom:1px solid var(--paper-line); padding-right:0; padding-bottom:8px; display:flex; align-items:center; gap:8px; }
+    .sheet-no b{ display:inline; font-size:18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">SHT-01</span>
+      <span class="brand-name">THE DRAFTING TABLE</span>
+    </div>
+    <nav>
+      <a href="#top">Home</a>
+      <a href="#post-01">Posts</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<div id="top" class="titleblock-wrap">
+  <div class="titleblock">
+    <div class="tb-top">
+      <div class="tb-eyebrow">Resource Log — Engineering Students</div>
+      <h1 class="tb-title">Notes from the drafting table.</h1>
+      <p class="tb-sub">Study tactics, soft skills, and field notes for engineering students turning coursework into a career — written while still figuring it out myself.</p>
+    </div>
+    <div class="tb-meta-strip">
+      <div class="tb-meta-cell">
+        <span class="tb-meta-label">Author</span>
+        <span class="tb-meta-value">Eng. Student</span>
+      </div>
+      <div class="tb-meta-cell">
+        <span class="tb-meta-label">Scale</span>
+        <span class="tb-meta-value">1 post / week</span>
+      </div>
+      <div class="tb-meta-cell">
+        <span class="tb-meta-label">Series</span>
+        <span class="tb-meta-value">Soft Skills</span>
+      </div>
+      <div class="tb-meta-cell">
+        <span class="tb-meta-label">Status</span>
+        <span class="tb-meta-value">In progress</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-label"><div class="tick"></div><span>Sheet Index</span></div>
+
+<div class="postcard">
+  <a href="#post-01" style="text-decoration:none;">
+    <div class="postcard-inner">
+      <div class="sheet-no"><b>01</b>OF SERIES</div>
+      <div>
+        <h3>What Are Soft Skills? Why They Matter for Your Career and Life</h3>
+        <p>Hard skills get you shortlisted. Soft skills get you hired. A breakdown of what soft skills actually are, and why they matter in interviews, at work, and in everyday life.</p>
+        <span class="read-tag">→ Read Sheet 01</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div class="postcard">
+  <div class="postcard-inner disabled">
+    <div class="sheet-no"><b>02</b>OF SERIES</div>
+    <div>
+      <h3>How to Communicate Technical Ideas to Non-Technical People</h3>
+      <p>Coming up next in the series.</p>
+      <span class="read-tag mono" style="color:var(--steel);">Drafting — not yet published</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-label" id="post-01"><div class="tick"></div><span>Sheet 01 — Full Read</span></div>
+
+<article>
+  <h2 style="border:none; margin-top:0;">What Are Soft Skills? Why They Matter for Your Career and Life</h2>
+
+  <p>If you're an engineering student, you've probably spent most of your time mastering technical subjects — coding, math, design, problem-solving. These are your <strong>hard skills</strong>, and they're essential. But there's another category of skills that often decides whether you actually land the job, keep it, and grow in it: <strong>soft skills</strong>.</p>
+
+  <h2>What Are Soft Skills?</h2>
+  <p>Soft skills are the personal qualities and interpersonal abilities that determine how you work with others and handle situations — as opposed to technical know-how. They include things like:</p>
+  <ul>
+    <li><strong>Communication</strong> — explaining ideas clearly, listening actively</li>
+    <li><strong>Teamwork</strong> — collaborating well with others toward a shared goal</li>
+    <li><strong>Time management</strong> — prioritizing tasks and meeting deadlines</li>
+    <li><strong>Problem-solving</strong> — approaching challenges calmly and creatively</li>
+    <li><strong>Adaptability</strong> — adjusting to new situations or unexpected changes</li>
+    <li><strong>Leadership</strong> — taking initiative and guiding others, even without a formal title</li>
+    <li><strong>Emotional intelligence</strong> — managing your own emotions and understanding others'</li>
+  </ul>
+  <p>Unlike hard skills (which are often specific to a job or field), soft skills are transferable — they matter no matter what career path you choose.</p>
+
+  <h2>Why Are Soft Skills Important for Getting a Job?</h2>
+  <div class="callout">Technical skills get you shortlisted, but soft skills get you hired.</div>
+  <p>Recruiters often say that most candidates for a role have similar technical qualifications. What separates one candidate from another in an interview is:</p>
+  <ul>
+    <li>How well you communicate your ideas</li>
+    <li>Whether you seem like someone the team would enjoy working with</li>
+    <li>How you handle unexpected or tricky interview questions</li>
+    <li>Whether you show initiative, curiosity, and adaptability</li>
+  </ul>
+  <p>Companies invest heavily in hiring the "right fit," not just the most technically skilled person. A brilliant engineer who can't explain their ideas, work in a team, or handle feedback well often struggles more than someone with slightly weaker technical skills but strong soft skills.</p>
+
+  <h2>How Are Soft Skills Useful in Real Life?</h2>
+  <p>Soft skills aren't just for job interviews — they shape almost every part of daily life:</p>
+
+  <p><strong>In college:</strong></p>
+  <ul>
+    <li>Working on group projects without conflict</li>
+    <li>Presenting your work confidently during vivas or demos</li>
+    <li>Managing your time across classes, assignments, and personal life</li>
+  </ul>
+
+  <p><strong>At work:</strong></p>
+  <ul>
+    <li>Collaborating with teammates from different backgrounds and departments</li>
+    <li>Handling criticism or feedback from managers without getting discouraged</li>
+    <li>Communicating technical problems to non-technical stakeholders</li>
+  </ul>
+
+  <p><strong>In personal relationships:</strong></p>
+  <ul>
+    <li>Listening to and understanding friends and family</li>
+    <li>Resolving disagreements calmly</li>
+    <li>Building trust and long-term relationships</li>
+  </ul>
+
+  <p><strong>In leadership roles:</strong></p>
+  <ul>
+    <li>Motivating a team even when you don't have formal authority</li>
+    <li>Making decisions under pressure</li>
+    <li>Taking responsibility when things go wrong</li>
+  </ul>
+
+  <h2>The Bottom Line</h2>
+  <p>Soft skills aren't "soft" in the sense of being easy — they're often harder to develop than technical skills because they require self-awareness and practice, not just memorization or study. But they're what turn a good engineer into a great colleague, a good student into a strong leader, and a good employee into someone who gets promoted.</p>
+  <p>The good news? Soft skills can be learned and improved, just like coding or math. In the coming posts, we'll break down specific soft skills — communication, time management, teamwork, and more — with practical tips you can start using today.</p>
+
+  <hr>
+  <p class="next-up">COMING UP NEXT — <b>How to Communicate Technical Ideas to Non-Technical People</b></p>
+</article>
+
+<footer id="about">
+  <div class="footer-inner">
+    <span>THE DRAFTING TABLE © 2026</span>
+    <span>Built one sheet at a time.</span>
+  </div>
+</footer>
+
+</body>
+</html>
